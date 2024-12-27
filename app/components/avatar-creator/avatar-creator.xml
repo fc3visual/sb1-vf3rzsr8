@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+    <GridLayout rows="auto, *, auto">
+        <!-- Top toolbar -->
+        <StackLayout row="0" class="p-4 bg-gray-100">
+            <Label text="Create Your Avatar" class="text-2xl font-bold"/>
+        </StackLayout>
+
+        <!-- Main content -->
+        <GridLayout row="1" columns="*, 2*">
+            <!-- Left panel - Controls -->
+            <StackLayout col="0" class="p-4 bg-white">
+                <Button text="Take Photo" tap="{{ takePhoto }}" class="btn btn-primary m-2"/>
+                <Button text="Upload Photo" tap="{{ uploadPhoto }}" class="btn btn-secondary m-2"/>
+                
+                <Label text="Customization" class="text-lg font-bold mt-4"/>
+                <ScrollView>
+                    <StackLayout>
+                        <!-- Style selection -->
+                        <Label text="Style" class="font-medium"/>
+                        <SegmentedBar items="{{ styles }}" selectedIndex="{{ selectedStyle }}"/>
+                        
+                        <!-- Hair color -->
+                        <Label text="Hair Color" class="font-medium mt-2"/>
+                        <GridLayout columns="auto, *">
+                            <ColorPicker col="1" selectedValue="{{ hairColor }}"/>
+                        </GridLayout>
+                        
+                        <!-- Other customization options -->
+                        <Label text="Accessories" class="font-medium mt-2"/>
+                        <ListView items="{{ accessories }}" itemTap="{{ onAccessoryTap }}">
+                            <ListView.itemTemplate>
+                                <Label text="{{ name }}" class="p-2"/>
+                            </ListView.itemTemplate>
+                        </ListView>
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+
+            <!-- Right panel - Preview -->
+            <StackLayout col="1" class="p-4">
+                <Image src="{{ currentAvatar }}" class="w-full h-64"/>
+                <TextView text="{{ speechText }}" hint="Type what you want your avatar to say..." class="h-32 m-2"/>
+                <Button text="{{ isSpeaking ? 'Stop' : 'Speak' }}" tap="{{ toggleSpeech }}" class="btn btn-primary"/>
+            </StackLayout>
+        </GridLayout>
+
+        <!-- Bottom toolbar -->
+        <StackLayout row="2" class="p-4 bg-gray-100">
+            <Button text="Save Avatar" tap="{{ saveAvatar }}" class="btn btn-success"/>
+        </StackLayout>
+    </GridLayout>
+</Page>

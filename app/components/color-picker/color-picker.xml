@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StackLayout class="m-2">
+    <Label text="{{ label }}" class="text-lg font-semibold mb-2"/>
+    <WrapLayout>
+        <Repeater items="{{ colors }}">
+            <Repeater.itemTemplate>
+                <Button 
+                    backgroundColor="{{ $value }}" 
+                    width="40" 
+                    height="40" 
+                    class="m-1 rounded-full"
+                    tap="onColorSelect"/>
+            </Repeater.itemTemplate>
+        </Repeater>
+    </WrapLayout>
+</StackLayout>

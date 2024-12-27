@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GridLayout rows="auto, *" class="p-4">
+    <Label text="Customize Avatar" class="text-xl font-bold mb-4" row="0"/>
+    <ScrollView row="1">
+        <StackLayout>
+            <StyleSelector selectedStyle="{{ selectedStyle }}" />
+            <ColorPicker 
+                selectedColor="{{ hairColor }}" 
+                label="Hair Color" 
+                class="mb-4"/>
+            <AccessoryList items="{{ accessories }}" />
+        </StackLayout>
+    </ScrollView>
+</GridLayout>

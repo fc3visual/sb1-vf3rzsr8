@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GridLayout rows="auto, auto" class="m-2">
+    <Label text="Choose Style" class="text-lg font-semibold mb-2" row="0"/>
+    <ListView items="{{ styles }}" row="1" itemTap="onStyleSelect">
+        <ListView.itemTemplate>
+            <GridLayout columns="auto, *" class="p-2">
+                <Image src="{{ preview }}" width="48" height="48" class="rounded"/>
+                <Label text="{{ name }}" col="1" class="ml-2 text-base"/>
+            </GridLayout>
+        </ListView.itemTemplate>
+    </ListView>
+</GridLayout>

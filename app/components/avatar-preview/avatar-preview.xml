@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StackLayout class="p-4">
+    <Image src="{{ avatarUrl }}" class="w-full h-64 rounded-lg"/>
+    <TextView 
+        text="{{ speechText }}" 
+        hint="Type message..." 
+        class="mt-4 p-2 border rounded"/>
+    <Button 
+        text="{{ speaking ? 'Stop' : 'Speak' }}" 
+        tap="{{ toggleSpeech }}"
+        class="mt-4 bg-blue-500 text-white"/>
+</StackLayout>
